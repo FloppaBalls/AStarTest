@@ -36,10 +36,16 @@ namespace Program
         }
         public void Search(ref Screen scr)
         {
-           if (last_path.Length > 0)
-            for(uint ind = 1u; ind < last_path.Length -1; ind++)
-            {
-                 scr.ChangeChar(last_path.GetValueAt(ind), ' ');
+            if (last_path.Length > 0)
+            { 
+                for (uint ind = 1u; ind < last_path.Length - 1; ind++)
+                {
+                    char ch = scr.GetChar(last_path.GetValueAt(ind));
+                    if (ch == '|' || ch == '-')
+                    {
+                        scr.ChangeChar(last_path.GetValueAt(ind), ' ');
+                    }
+                }
             }
 
            vector<Vec2> path = Algorithm.AStarAlgorithm.Apply(pos, destination, ref scr);

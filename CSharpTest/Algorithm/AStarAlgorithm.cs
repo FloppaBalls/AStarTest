@@ -159,11 +159,12 @@ namespace Algorithm
                 node = ref node_list.GetRefAt(aIndex);
             }
         }
+        //checks if the positions is in bounds and is represented by the 'O' character which stands for obstacle
         public static bool PositionAvailable(Vec2 obj , ref Screen scr)
         {
             if (Screen.InBounds(obj))
             {
-                return scr.GetChar(obj) == ' ';
+                return scr.GetChar(obj) != 'O';
             }
             return false;
         }
@@ -184,7 +185,8 @@ namespace Algorithm
                     Debug.Assert(index >= 0 && index < Screen.width * Screen.height);
 
                     Vec2 pos = new Vec2(x, y);
-                    bool IsObs = !(scr.GetChar(pos) == ' ');
+                    //this is the char that represents an obstacle
+                    bool IsObs = (scr.GetChar(pos) == 'O');
 
                     node_list.SetValueAt((uint)index , new Node(pos , IsObs));
                 }

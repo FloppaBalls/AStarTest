@@ -155,7 +155,7 @@ class Program
             {
                 try
                 {
-                    Console.WriteLine("How many RANDOM obstacles do you want?");
+                    Console.WriteLine("HHow many RANDOM obstacles do you want?");
                     int nObs = Menu.GetNumber();
                     if(nObs < 0)
                     {
